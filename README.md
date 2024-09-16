@@ -42,13 +42,13 @@ Ensure that you have the following installed on your machine:
 1. Clone the repository:
 
    ```bash
-   https://github.com/Majidied/open-source-dataverse-events.git
+   git clone https://github.com/Majidied/open-source-dataverse-events.git
    ```
 
 2. Navigate into the project directory:
 
    ```bash
-   cd oopen-source-dataverse-events
+   cd open-source-dataverse-events
    ```
 
 3. Install the required dependencies:
