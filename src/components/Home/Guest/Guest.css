@@ -1,0 +1,20 @@
+.guest-slider .slick-slide {
+    margin: 0 15px; /* Spacing between the guest items */
+    padding: 10px;
+  }
+  
+  .guest-item {
+    min-width: 280px; /* Ensure guest cards have a minimum width */
+    max-width: 320px; /* Control the maximum width for each guest card */
+    flex-shrink: 0;
+  }
+  
+  .slick-dots {
+    bottom: -30px; /* Position the dots correctly */
+  }
+  
+  .slick-prev, .slick-next {
+    z-index: 1;
+    color: black; /* Customize the arrow color */
+  }
+  
