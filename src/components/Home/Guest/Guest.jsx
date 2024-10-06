@@ -20,7 +20,7 @@ const Guest = () => {
     slidesToShow: 3, // Show 3 guests at a time
     slidesToScroll: 1, // Scroll one guest at a time
     autoplay: true, // Auto-scroll
-    autoplaySpeed: 2000, // Auto-scroll every 3 seconds
+    autoplaySpeed: 1000, // Auto-scroll every 1 seconds
     responsive: [
       {
         breakpoint: 1024,
