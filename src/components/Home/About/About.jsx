@@ -34,13 +34,13 @@ const About = () => {
   return (
     <section
     ref={sectionRef}
-    className="relative h-3/4 flex flex-col justify-center items-center bg-gradient-to-r from-red-500 to-indigo-600 text-white"
+    className="relative h-3/4 flex flex-col justify-center m-20 items-center text-white"
     >
     {/* Flex container with flex-col to stack elements vertically */}
     <div className="h-full flex flex-col items-center justify-center space-y-8 px-10 text-center">
         {/* Heading with fade-in and slide-up effect */}
         <motion.h1
-        className="text-5xl md:text-6xl font-bold"
+        className="text-lg md:text-4xl font-bold"
         initial={{ opacity: 0, y: 50 }}  // Start out of view
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}  // Trigger when in view
         transition={{ duration: 1 }}     // Animation duration

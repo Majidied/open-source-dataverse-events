@@ -2,10 +2,18 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import logo1 from './dataversetxt.png'; // Adjust the path to your logo image
 import logo2 from './dataversetxt.png'; // Adjust the path to your logo image
+import bckHero from './bckhero.jpg'; // Import the background image
 
 const Hero = () => {
   return (
-    <section className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-r from-red-500 to-indigo-600 text-white">
+    <section 
+      className="relative h-screen flex flex-col justify-center items-center bg-gradient-to-r from-red-500 to-indigo-600 text-white"
+      style={{
+        backgroundImage: `url(${bckHero})`, // Set the background image
+        backgroundSize: 'cover', // Make the background cover the entire section
+        backgroundPosition: 'center', // Center the background image
+      }}
+    >
       {/* Overlay logos in the center */}
       <div className="flex items-center justify-center mb-10 space-x-20"> {/* Added space-x-20 for spacing between logos */}
         {/* Left Logo with fade in from the left */}
