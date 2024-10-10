@@ -1,20 +1,37 @@
-.guest-slider .slick-slide {
-    margin: 0 15px; /* Spacing between the guest items */
-    padding: 10px;
-  }
-  
-  .guest-item {
-    min-width: 280px; /* Ensure guest cards have a minimum width */
-    max-width: 320px; /* Control the maximum width for each guest card */
-    flex-shrink: 0;
-  }
-  
-  .slick-dots {
-    bottom: 90px; /* Position the dots correctly */
-  }
-  
-  .slick-prev, .slick-next {
-    z-index: 1;
-    color: black; /* Customize the arrow color */
-  }
-  
+.guest-item {
+  background: none; /* No background */
+}
+
+.guest-slider {
+  padding: 0 20px; /* Adjust as needed */
+}
+
+.guest-item img {
+  border-radius: 15px; /* Slightly rounded corners */
+}
+
+.guest-item h3, 
+.guest-item p {
+  color: #333; /* Adjust text color as needed */
+}
+
+.guest-item a {
+  color: white; /* LinkedIn name in white */
+}
+
+.guest-item a:hover {
+  color: #0077b5; /* LinkedIn brand blue on hover */
+}
+
+.slick-dots li.slick-active button {
+  background: white; /* Active dot color */
+}
+
+.slick-dots li button {
+  background: gray; /* Inactive dot color */
+  opacity: 0.5; /* Optional: Add some transparency */
+}
+
+.slick-dots li button:hover {
+  background: white; /* Change to white on hover */
+}

@@ -1,77 +1,56 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa'; // Import social media icons
+import { FaLinkedin } from 'react-icons/fa'; // Import only LinkedIn icon
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import './Guest.css'; // Custom CSS
 
 const conferenciers = [
   {
     name: 'Dr. Alice Doe',
     title: 'Expert en Développement Durable',
-    image: 'https://via.placeholder.com/300', // Add image paths
-    socials: {
-      twitter: 'https://twitter.com/alicedoe',
-      linkedin: 'https://linkedin.com/in/alicedoe',
-      github: 'https://github.com/alicedoe',
-    },
+    image: 'https://via.placeholder.com/300', 
+    linkedin: 'https://linkedin.com/in/alicedoe',
   },
   {
     name: 'Prof. Bob Smith',
     title: 'Directeur de la Recherche',
-    image: 'phttps://via.placeholder.com/300',
-    socials: {
-      twitter: 'https://twitter.com/bobsmith',
-      linkedin: 'https://linkedin.com/in/bobsmith',
-      github: 'https://github.com/bobsmith',
-    },
+    image: 'https://via.placeholder.com/300',
+    linkedin: 'https://linkedin.com/in/bobsmith',
   },
   {
     name: 'M. Charlie Johnson',
     title: 'Spécialiste en Réalité Augmentée',
-    image: 'phttps://via.placeholder.com/300',
-    socials: {
-      twitter: 'https://twitter.com/charliejohnson',
-      linkedin: 'https://linkedin.com/in/charliejohnson',
-      github: 'https://github.com/charliejohnson',
-    },
+    image: 'https://via.placeholder.com/300',
+    linkedin: 'https://linkedin.com/in/charliejohnson',
   },
   {
     name: 'Mme Dana White',
     title: 'Designer UX',
     image: 'https://via.placeholder.com/300',
-    socials: {
-      twitter: 'https://twitter.com/danawhite',
-      linkedin: 'https://linkedin.com/in/danawhite',
-      github: 'https://github.com/danawhite',
-    },
+    linkedin: 'https://linkedin.com/in/danawhite',
   },
   {
     name: 'Dr. Eve Black',
     title: 'Scientifique des Données',
     image: 'https://via.placeholder.com/300',
-    socials: {
-      twitter: 'https://twitter.com/eveblack',
-      linkedin: 'https://linkedin.com/in/eveblack',
-      github: 'https://github.com/eveblack',
-    },
+    linkedin: 'https://linkedin.com/in/eveblack',
   },
 ];
 
 const Guest = () => {
   const settings = {
-    dots: true, // Enable navigation dots
-    infinite: true, // Infinite scrolling
-    speed: 500, // Transition speed in milliseconds
-    slidesToShow: 3, // Show 3 guests at a time
-    slidesToScroll: 1, // Scroll one guest at a time
-    autoplay: true, // Auto-scroll
-    autoplaySpeed: 2000, // Auto-scroll every 1 seconds
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3, // Show 3 guests on desktop
+          slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -79,7 +58,7 @@ const Guest = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2, // Show 2 guests on tablet
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -87,7 +66,7 @@ const Guest = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1, // Show 1 guest on mobile
+          slidesToShow: 1,
           slidesToScroll: 1,
           infinite: true,
         },
@@ -96,32 +75,26 @@ const Guest = () => {
   };
 
   return (
-    <section id='team' className="py-16  text-center overflow-hidden">
-      <h2 className="text-4xl font-bold mb-8">Nos Conférenciers</h2>
+    <section id='team' className="py-16 text-center overflow-hidden bg-transparent">
+      <h2 className="text-4xl font-bold mb-8 text-white">Nos Conférenciers</h2>
       <Slider {...settings} className="guest-slider w-full">
         {conferenciers.map((conferencier, index) => (
-          <div key={index} className="guest-item shadow-lg p-6 bg-gray-50 rounded-lg">
+          <div key={index} className="guest-item shadow-lg p-6 bg-transparent rounded-lg">
             {/* Guest Image */}
             <img
               src={conferencier.image}
               alt={conferencier.name}
-              className="w-40 h-40 mx-auto rounded-full mb-4 object-cover"
+              className="w-60 h-60 mx-auto rounded-lg mb-4 object-cover"
             />
 
             {/* Guest Name and Title */}
-            <h3 className="text-2xl font-semibold mb-2">{conferencier.name}</h3>
-            <p className="mb-4">{conferencier.title}</p>
+            <h3 className="text-2xl font-semibold mb-2 text-white">{conferencier.name}</h3>
+            <p className="mb-4 text-white">{conferencier.title}</p>
 
-            {/* Social Media Icons */}
-            <div className="flex justify-center space-x-4">
-              <a href={conferencier.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-                <FaTwitter size={24} />
-              </a>
-              <a href={conferencier.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-blue-700">
-                <FaLinkedin size={24} />
-              </a>
-              <a href={conferencier.socials.github} target="_blank" rel="noopener noreferrer" className="text-gray-800">
-                <FaGithub size={24} />
+            {/* LinkedIn Icon */}
+            <div className="flex justify-center">
+              <a href={conferencier.linkedin} target="_blank" rel="noopener noreferrer" className="text-white">
+                <FaLinkedin size={30} />
               </a>
             </div>
           </div>

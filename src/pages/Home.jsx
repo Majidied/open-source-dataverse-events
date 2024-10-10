@@ -6,6 +6,7 @@ import Guest from '../components/Home/Guest/Guest';
 import ARsection from '../components/Home/Arsection/Arsection';
 import Footer from '../components/Footer/Footer';
 import About from '../components/Home/About/About';
+import JOHackathon from '../components/Home/JOHackathon/JOHackathon';
 
 
 
@@ -17,6 +18,7 @@ export default function Home() {
         <Planning />
         <Sponsors />
         <Guest />
+        <JOHackathon />
         <ARsection />
         <Footer />
       </div>
