@@ -2,7 +2,7 @@ import React from 'react';
 
 const Planning = () => {
   return (
-    <section id="planning" className="py-16 bg-white text-center">
+    <section id="planning" className="py-16 bg-transparent text-center">
       <h2 className="text-4xl font-bold mb-8">Planning</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
         <div className="shadow-lg p-6 bg-gray-50 rounded-lg">

@@ -49,7 +49,7 @@ const Guest = () => {
   };
 
   return (
-    <section id='team' className="py-16 bg-white text-center overflow-hidden">
+    <section id='guests' className="py-16 bg-transparent text-center overflow-hidden">
       <h2 className="text-4xl font-bold mb-8">Nos Conférenciers</h2>
       <Slider {...settings} className="guest-slider w-full">
         {conferenciers.map((conferencier, index) => (

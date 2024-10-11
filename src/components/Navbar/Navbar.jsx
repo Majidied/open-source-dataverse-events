@@ -30,6 +30,18 @@ const Navbar = () => {
             Planning
           </a>
           <a
+            href="#sponsors"
+            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+          >
+            Sponsors
+          </a>
+          <a
+            href="#guests"
+            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
+          >
+            Guests
+          </a>
+          <a
             href="#ar-section"
             className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
           >
