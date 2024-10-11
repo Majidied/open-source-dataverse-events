@@ -4,14 +4,14 @@ import Sponsors from '../components/Home/Sponsors/Sponsors';
 import Guest from '../components/Home/Guest/Guest';
 import ARsection from '../components/Home/Arsection/Arsection';
 import Footer from '../components/Footer/Footer';
-import bgSvg from '../assets/bg.jpg'; // Import the SVG from the assets folder
+import bgSvg from '../assets/bg.svg'; // Import the SVG from the assets folder
 
 export default function Home() {
   return (
     <div>
       <Hero />
       <div 
-        className="mx-auto px-4"
+        className="mx-auto"
         style={{
           backgroundImage: `url(${bgSvg})`,   // Use the imported SVG file
           backgroundSize: 'cover',            // Cover the entire area

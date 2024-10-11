@@ -16,7 +16,7 @@ const sponsors = [
 const settings = {
   dots: false,
   infinite: true,
-  speed: 5000, // Slow down speed for smoother scrolling
+  speed: 3000, // Slow down speed for smoother scrolling
   slidesToShow: 5, // Reduced to 5 for more balanced display on large screens
   slidesToScroll: 1,
   autoplay: true,
