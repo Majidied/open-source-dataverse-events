@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import logo1 from './dv.svg'; // Adjust the path to your logo image
 import logo2 from './os.svg'; // Adjust the path to your logo image
-import bckHero from './bckhero.svg'; // Import the background image
+import bckHero from './bck.jpg'; // Import the background image
 
 const Hero = () => {
   return (
@@ -59,7 +59,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}    // Animate to full opacity
           transition={{ duration: 1 }}      // Animation duration
         >
-          Open Source & DataVerse Events
+          DataVerse & Open Source  Events
         </motion.h1>
         
         <motion.p 
@@ -71,17 +71,7 @@ const Hero = () => {
           Experience the synergy of innovation as Open Source Days collaborates with Dataverse. Together, we bring you an event that celebrates open-source technology and data management.
         </motion.p>
         
-        <motion.button 
-          className="mt-6 bg-white text-red-600 py-2 px-6 rounded-full font-semibold hover:bg-red-600 hover:text-white transition duration-300"
-          initial={{ scale: 0 }} 
-          animate={{ scale: 1 }} 
-          transition={{ delay: 1, duration: 0.5 }}
-          onClick={() => {
-            window.location.href = '#about-us'; // Adjust this to the correct ID for the "About Us" section
-          }}
-        >
-          Discover More
-        </motion.button>
+
       </div>
     </section>
   );

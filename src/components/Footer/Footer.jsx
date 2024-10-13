@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaInstagram, FaLinkedin, FaGoogle } from 'react-icons/fa'; // Import social media icons
 import logo1 from './dataversetxt.png'; // Adjust the path to your logo image
-import logo2 from './dataversetxt.png'; // Adjust the path to your logo image
+import logo2 from './os.svg'; // Adjust the path to your logo image
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-wrap justify-between items-center">
           {/* Column 1: Logos separated by "X" */}
-          <div className="flex items-center mb-4 space-x-4">
+          <div className="flex items-center sm:justify-center mb-4 space-x-4">
             <img src={logo1} alt="Logo 1" className="w-24 h-24 object-contain" />
             <span className="text-white font-extrabold text-2xl">X</span>
             <img src={logo2} alt="Logo 2" className="w-24 h-24 object-contain" />
@@ -60,7 +60,7 @@ const Footer = () => {
 
       {/* Footer copyright */}
       <div className="text-center mt-4">
-        <p>&copy; 2024 Open Source v13. All Rights Reserved.</p>
+        <p>&copy; 2024 dataverse v4.0 & open source days v13. All Rights Reserved.</p>
       </div>
     </footer>
   );

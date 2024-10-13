@@ -33,6 +33,7 @@ const About = () => {
 
   return (
     <section
+    id='About'
     ref={sectionRef}
     className="relative h-3/4 flex flex-col justify-center m-20 items-center text-white"
     >

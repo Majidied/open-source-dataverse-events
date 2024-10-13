@@ -2,7 +2,9 @@ import React from 'react';
 
 const JOHackathon = () => {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <section
+      id='JOHackathon'
+      className="min-h-screen flex flex-col justify-center items-center text-center px-4">
       <h2 className="text-4xl font-bold mb-8">Join Our Hackathon</h2>
       
       <form className="w-full max-w-lg grid grid-cols-1 md:grid-cols-2 gap-6">
