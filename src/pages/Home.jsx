@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <div>
       <Hero />
-      <div 
-        className="mx-auto"
+      <div
+        className="relative mx-0 w-full -z-10" // Ensure full width for responsiveness
         style={{
           backgroundImage: `url(${bgSvg})`,   // Use the imported SVG file
           backgroundSize: 'cover',            // Cover the entire area
@@ -19,13 +19,18 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',      // Prevent repetition
           backgroundAttachment: 'fixed',      // Make the background fixed, so it doesn't scroll
           minHeight: '100vh',                 // Ensure it covers the entire viewport height
-          
         }}
       >
-        <Planning />
-        <Sponsors />
-        <Guest />
-        <ARsection />
+        {/* Add black overlay to make text more readable */}
+        <div className="absolute inset-0 bg-black opacity-10 z-0"></div>
+
+        {/* Content goes here, using a higher z-index */}
+        <div className="relative z-10 px-4 sm:px-8"> {/* Add padding for responsive spacing */}
+          <Planning />
+          <Sponsors />
+          <Guest />
+          <ARsection />
+        </div>
       </div>
       <Footer />
     </div>
