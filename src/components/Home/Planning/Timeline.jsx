@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./Timeline.css"; // Vous pouvez utiliser ce fichier CSS pour styliser
 
-const Timeline = ({speedScroll}) => {
+const Timeline = ({speedScroll }) => {
   const [items, setItems] = useState([
     { id: 1, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
     { id: 2, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
@@ -58,6 +58,10 @@ const Timeline = ({speedScroll}) => {
     setItems([...items, { id: newId, hour: `Item ${newId}` }]);
   };
 
+  
+
+
+
   return (
     <div className="timeline-container" ref = {ref_T}
     onMouseDown={handleMouseDown}
@@ -66,6 +70,7 @@ const Timeline = ({speedScroll}) => {
     onMouseUp={handleMouseUp}
     >
       <div className="timeline">
+      <div className="dot"   ></div>
       {items.map((item, index) => (
           <div
             className={`timeline-item ${index % 2 === 0 ? "top" : "bottom"}`}
@@ -83,5 +88,7 @@ const Timeline = ({speedScroll}) => {
     </div>
   );
 };
+
+
 
 export default Timeline;
