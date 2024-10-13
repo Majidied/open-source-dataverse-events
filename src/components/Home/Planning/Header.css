@@ -1,0 +1,47 @@
+.MainContainer{
+    background-color: black;
+    height:  40%;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+    align-items: center;
+    gap: 50px;
+    
+}
+.MainContainer h1 {
+    font-size: 4.5rem;
+    margin-top: 25px;
+    font-weight: 600;
+ }
+
+ .MainContainer p {
+    font-weight: 200;
+ }
+
+ .B_C{
+    width: 53%;
+    
+ }
+
+.ButtonsContainer{
+    width: fit-content;
+    margin-top:10px;
+    font-size: 20px;
+    font-weight:600 ;
+    background-color: rgb(14, 9, 84);
+    margin-right: auto;
+
+}
+
+.ButtonsContainer button:nth-child(2){
+    margin-right: 20px;
+}
+
+.ButtonsContainer button:nth-child(1){
+    margin-right: 20px;
+}
+.ButtonsContainer button:nth-child(3){
+    margin-left: auto;
+}

@@ -11,7 +11,7 @@ export default function Home() {
     <div>
       <Hero />
       <div 
-        className="mx-auto"
+        className="mx-auto w-screen"
         style={{
           backgroundImage: `url(${bgSvg})`,   // Use the imported SVG file
           backgroundSize: 'cover',            // Cover the entire area
@@ -19,6 +19,7 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',      // Prevent repetition
           backgroundAttachment: 'fixed',      // Make the background fixed, so it doesn't scroll
           minHeight: '100vh',                 // Ensure it covers the entire viewport height
+          width: "100"
           
         }}
       >
