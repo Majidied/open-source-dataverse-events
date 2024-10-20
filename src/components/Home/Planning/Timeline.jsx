@@ -1,94 +1,121 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Timeline.css"; // Vous pouvez utiliser ce fichier CSS pour styliser
 
-const Timeline = ({speedScroll }) => {
-  const [items, setItems] = useState([
-    { id: 1, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 2, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 3, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 4, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 5, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 6, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 7, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 5, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 6, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 7, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 5, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    { id: 6, hour: "8h : 10 min" , description :"Une certain chose a ecrire helllo je sui ici car je veut"},
-    { id: 7, hour: "8h : 10 min" , description :"Une certain chose a ecrire"},
-    
-  ]);
+const Timeline = ({ speedScroll , isActive , events}) => {
+  const [items, setItems] = useState(events);
 
-  const ref_T = useRef(null)
-  const [isMouseDown , setIsMouseDown] = useState(false)
-  const [startX, setStartX,] = useState(0)
-  const [scrollLeft ,setScrollLeft] = useState(0)
+  const ref_T = useRef(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const isMobile = window.innerWidth <= 768;
 
-  //! les Fonctions des evenement 
-
-  const handleMouseDown = (e)=>{
-    setIsMouseDown(true)
-    setStartX(e.pageX - ref_T.current.offsetLeft) //* calculer la position du souris par rapport au element
-    setScrollLeft(ref_T.current.scrollLeft)
-    console.log(scrollLeft)
-  
-  }
-
-  const handleMouseLeave = ()=>{
-    setIsMouseDown(false)
-  }
-
-  const handleMouseMove = (e)=>{
-   if(!isMouseDown) return ;
-   e.preventDefault()
-  
-   const x = e.pageX - ref_T.current.offsetLeft;
-   const walk = (x - startX) * speedScroll ;
-  
-   ref_T.current.scrollLeft = scrollLeft-walk
-   console.log(ref_T.current.scrollLeft)
-  }
-
-  const handleMouseUp = ()=>{
-    setIsMouseDown(false)
-  }
-  // Fonction pour ajouter un nouvel élément à la timeline
-  const addItem = () => {
-    const newId = items.length + 1;
-    setItems([...items, { id: newId, hour: `Item ${newId}` }]);
+  //! Mouse drag events for timeline scrolling
+  const handleMouseDown = (e) => {
+    setIsMouseDown(true);
+    setStartX(e.pageX - ref_T.current.offsetLeft); // Calculate mouse position relative to the element
+    setScrollLeft(ref_T.current.scrollLeft);
   };
 
+  const handleMouseLeave = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - ref_T.current.offsetLeft;
+    const walk = (x - startX) * speedScroll;
+    ref_T.current.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  //! State for the dot position and current time
+  const [dotPosition, setDotPosition] = useState(0);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  const distanceH = 30; // Width of each timeline item
+  const Start_time = new Date();
+  Start_time.setHours(items[0].depardH);
+  Start_time.setMinutes(items[0].depardM);
+
+  const updateDotPosition = (i) => {
+    // Calculate the new dot position based on timeline items and time progression
+    const newPosition = 197* i; // Increment based on index
+    setDotPosition(newPosition);
+  };
+
+  useEffect(() => {
+    let i = 0; // Local index to track current item
+    const interval = setInterval(() => {
+      if (i < items.length ) {
+        const itemTime = new Date();
+        itemTime.setHours(items[i].depardH);
+        itemTime.setMinutes(items[i].depardM);
+
+        // Check if current time is past the item's scheduled time
+        if (currentTime >= itemTime) {
+          
+          // Stop if stp is true
+          if (items[i].stp) {
+            clearInterval(interval);
+          }
+          i++; // Move to the next item
+        }
+      }
+      updateDotPosition(i);
+    }, 1500);
+
+    // Clear the interval on unmount
+    return () => clearInterval(interval);
+  }, [currentTime, items]);
+
+  useEffect(() => {
+    // Update current time every minute
+    const timeInterval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(timeInterval);
+  }, []);
   
 
-
-
   return (
-    <div className="timeline-container" ref = {ref_T}
-    onMouseDown={handleMouseDown}
-    onMouseLeave={handleMouseLeave}
-    onMouseMove={handleMouseMove}
-    onMouseUp={handleMouseUp}
+    <div className="timeline-container"
+      ref={ref_T}
+      onMouseDown={handleMouseDown}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
     >
       <div className="timeline">
-      <div className="dot"   ></div>
-      {items.map((item, index) => (
+        <div
+          className={`dot ${isActive ? 'active_dot' : 'disactive_dot'}`}
+          style={{
+            left: `${dotPosition}px`, // Move dot horizontally
+          }}
+        ></div>
+        {items.map((item, index) => (
           <div
             className={`timeline-item ${index % 2 === 0 ? "top" : "bottom"}`}
-            key={item.id}>
-                <div className="Timeline-content">
-                    <div className="connector"></div>
-                    <div className="label">
-                        <h1>{item.hour}</h1>
-                        <p>{item.description}</p>
-                    </div>
-                </div>
+            key={item.id}
+          >
+            <div className="Timeline-content">
+              <div className="connector"></div>
+              <div className="label">
+                <h1>{item.hour}</h1>
+                <p>{item.description}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 };
-
-
 
 export default Timeline;

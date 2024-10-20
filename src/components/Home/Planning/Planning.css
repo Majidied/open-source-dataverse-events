@@ -1,0 +1,41 @@
+.disactive_One{
+    transform: translate(0 , 360px);
+    transition: 1s ease;
+}
+
+
+
+
+.Active_One {
+    transition: 1s ease;
+}
+
+
+
+.disactive_Tree{
+
+    transform: translate(0 ,0);
+    transition: 1s ease;
+
+}
+
+
+.Active_Tree{
+    transform: translate(0 , -662px);
+    transition: 1s ease;
+}
+
+
+.disactive_Two{
+
+    transform: translate(0 ,0);
+    transition: 1s ease;
+
+}
+
+.Active_Two{
+
+    transform: translate(0 , -332px);
+    transition: 1s ease;
+
+}

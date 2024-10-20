@@ -34,7 +34,7 @@
   .timeline .dot {
     position: absolute;
     top: 50%;
-  
+    transition: linear 0.6s;
     transform: translate(0,-48%);
     border-radius: 50%;
     width: 20px;
@@ -158,6 +158,10 @@
   .timeline-item.top  .Timeline-content .label p{
     order: 0;
     
+  }
+
+  .disactive_dot{
+    display: none;
   }
   
   
