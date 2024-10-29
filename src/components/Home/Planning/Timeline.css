@@ -146,6 +146,9 @@
   
   .Timeline-content .label p{
     font-weight: 300;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
   
   .timeline-item.top  .Timeline-content .label h1{
@@ -167,26 +170,52 @@
   
   /** Media querie */
   
-  @media (max-width:400px) {
+  @media (max-width:430px) {
+
+    .timeline{
+      height: 100%;
+    }
     .timeline-item{
-      width: 100px;
+      width: 150px; /*!le pas du dot doit etre  150px */
     }
     .label{
-      width: 160px;
+      width:100%;
+      height: 70%;
+      
+      margin-bottom: 10px;
       
     }
+    
     .label h1{
-      font-size: 20px;
+      font-size: 16px;
       margin-left: auto;
       margin-right: auto;
       padding-bottom: 9px;
       
       
     }
+
+    .timeline-item.timeline-item.top .Timeline-content .label h1{
+      padding-top: 10px;
+    }
+
+    .timeline-item.timeline-item.top .Timeline-content .label {
+      height: 60%;
+      
+    }
+
+    
     .label p{
       margin-left: auto;
       margin-right: auto;
+      height: 40%;
+      
+      font-size: 14px;
   
+    }
+    .timeline-item.timeline-item.bottom .Timeline-content .label h1{
+      height: 40%;
+      padding-top: 4px;
     }
   
     .timeline-container{

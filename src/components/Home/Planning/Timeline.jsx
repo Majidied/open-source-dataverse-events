@@ -1,13 +1,17 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./Timeline.css"; // Vous pouvez utiliser ce fichier CSS pour styliser
 
+
 const Timeline = ({ speedScroll , isActive , events}) => {
   const [items, setItems] = useState(events);
+  
 
-  const ref_T = useRef(null);
+ 
+
+  const ref_T = useRef();
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState();
   const isMobile = window.innerWidth <= 768;
 
   //! Mouse drag events for timeline scrolling
@@ -34,17 +38,24 @@ const Timeline = ({ speedScroll , isActive , events}) => {
   };
 
   //! State for the dot position and current time
+
+  const timCont = useRef()
   const [dotPosition, setDotPosition] = useState(0);
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  const distanceH = 30; // Width of each timeline item
+  var distanceH ;
+  if(window.innerHeight<430){
+     distanceH =150 - 2 ; // Width of each timeline item
+  }else{
+    distanceH =  198
+  }
   const Start_time = new Date();
   Start_time.setHours(items[0].depardH);
   Start_time.setMinutes(items[0].depardM);
 
   const updateDotPosition = (i) => {
     // Calculate the new dot position based on timeline items and time progression
-    const newPosition = 197* i; // Increment based on index
+    const newPosition = distanceH* i; // Increment based on index
     setDotPosition(newPosition);
   };
 
@@ -67,7 +78,7 @@ const Timeline = ({ speedScroll , isActive , events}) => {
         }
       }
       updateDotPosition(i);
-    }, 1500);
+    }, 500);  //! je doit  le reverifier 
 
     // Clear the interval on unmount
     return () => clearInterval(interval);
@@ -82,7 +93,55 @@ const Timeline = ({ speedScroll , isActive , events}) => {
     // Cleanup interval on component unmount
     return () => clearInterval(timeInterval);
   }, []);
+
+  //!  ajuster le scrollLeft de la timeline en fonction de la position de la dots  dot
+
+
+  // const [Gap , setGap] = useState(0)
+
+  const dot = useRef();
+
+
+  const isSeen = ()=>{
+    let dotP = dot.current.getBoundingClientRect()
+    console.log(dotP.left)
+    let gap = window.innerWidth - dotP.left - 100 
+    
+    console.log(gap)
+    if(gap<0){
+      
+      return gap
+    }
+  }
+
+
+
+  useEffect(()=>{
+    const dotTime = setTimeout(()=>{
+      const T_L = ref_T.current
+    
+      const gap = -isSeen()
   
+      if(gap>0){
+        
+        
+        T_L.scrollTo({
+          left: gap,
+          behavior: 'smooth'
+        });
+      }
+    }, 7000)
+
+    return ()=>clearTimeout(dotTime)
+    
+  },[])
+
+  
+
+
+  
+  
+ 
 
   return (
     <div className="timeline-container"
@@ -95,6 +154,7 @@ const Timeline = ({ speedScroll , isActive , events}) => {
       <div className="timeline">
         <div
           className={`dot ${isActive ? 'active_dot' : 'disactive_dot'}`}
+          ref={dot}
           style={{
             left: `${dotPosition}px`, // Move dot horizontally
           }}
@@ -104,7 +164,7 @@ const Timeline = ({ speedScroll , isActive , events}) => {
             className={`timeline-item ${index % 2 === 0 ? "top" : "bottom"}`}
             key={item.id}
           >
-            <div className="Timeline-content">
+            <div className="Timeline-content" ref={timCont}>
               <div className="connector"></div>
               <div className="label">
                 <h1>{item.hour}</h1>

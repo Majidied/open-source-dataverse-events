@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import "./Header.css"
 
-const Header = ( {handleClick_One , handleClick_Two , handleClick_Tree  }) => {
- 
-  
+const Header = ( {handleClick_One , handleClick_Two , handleClick_Tree , status }) => {
+  const statusClass = status === "left" 
+    ? "class-left" 
+    : status === "middle"  // Mettre "middle" en minuscules pour cohérence
+      ? "class-middle" 
+    : status === "right"
+      ? "class-right"
+    : ""; // Valeur par défaut si aucun status n'est trouvé
 
   return (
     <div className='MainContainer'>
@@ -14,6 +19,7 @@ const Header = ( {handleClick_One , handleClick_Two , handleClick_Tree  }) => {
                 <button onClick={handleClick_One} >25 Nov</button>
                 <button onClick={handleClick_Two}>26 Nov</button>
                 <button onClick={handleClick_Tree}>27 Nov</button>
+                <span className={statusClass}></span>
                 {/* Adding an underliner that switch between the buttons */}
             </div>
         </div>
