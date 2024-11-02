@@ -159,7 +159,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden">
+        <div className="md:hidden w-screen ">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {renderLinks()}
           </div>
