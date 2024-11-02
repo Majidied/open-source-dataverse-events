@@ -8,10 +8,10 @@ import bgSvg from '../assets/bg.svg'; // Import the SVG file
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Hero />
       <div 
-        className="mx-auto w-screen"
+        className="mx-auto w-full"
         style={{
           backgroundImage: `url(${bgSvg})`,   // Use the imported SVG file
           backgroundSize: 'cover',            // Cover the entire area
@@ -19,8 +19,6 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',      // Prevent repetition
           backgroundAttachment: 'fixed',      // Make the background fixed, so it doesn't scroll
           minHeight: '100vh',                 // Ensure it covers the entire viewport height
-          width: "100"
-          
         }}
       >
         <Planning />
