@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Historique = () => {
   return (
     <section id='historique' className="py-16 bg-gray-800 text-white text-center">

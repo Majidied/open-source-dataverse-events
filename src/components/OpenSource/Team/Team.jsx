@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Team = () => {
   return (
     <section id='team' className="py-16 bg-white text-center">

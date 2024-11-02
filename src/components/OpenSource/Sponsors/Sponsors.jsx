@@ -1,5 +1,3 @@
-import React from 'react';
-
 const sponsors = [
   { name: 'Sponsor 1', logo: 'https://mp.afrikayna.com/wp-content/uploads/2018/11/OCP-logo.jpg' },
   { name: 'Sponsor 2', logo: 'https://via.placeholder.com/150' },
