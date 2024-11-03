@@ -75,19 +75,19 @@ const Historique = () => {
 
 
 const timelineData = [
-  { version: 'V1.0', year: '2013', description: "L'informatique, une révolution technologique: entre nécessité et besoin" },
-  { version: 'V2.0', year: '2014', description: "Un facteur de promotion du développement de l'entreprise marocaine Vers un partenariat Université-Entreprise" },
-  { version: 'V3.0', year: '2015', description: "Open Innovation, Open Enterprise, Open Society: Open Source is the future" },
-  { version: 'V4.0', year: '2016', description: "Big & OPEN DATA: De la valorisation Fexploitation de la donnée ouverte" },
-  { version: 'V5.0', year: '2017', description: "Development and launch of a new innovative product for business management." },
-  { version: 'V6.0', year: '2018', description: "Innovation et Open Source" },
-  { version: 'V7.0', year: '2019', description: "Open Data: Une richesse publique nécessaire au développement de demain." },
-  { version: 'V8.0', year: '2020', description: "Intelligence Artificielle: Un nouveau challenge pour la digitalisation des entreprises marocaines." },
-  { version: 'V9.0', year: '2021', description: "Covid-19: L'entreprise à l'ère du digital." },
-  { version: 'V10.0', year: '2022', description: "A Decade of Open Source: Visualization, Innovation and Dedication Une édition spéciale" },
-  { version: 'V11.0', year: '2023', description: "L'informatique entre les tendances technologiques et les exigences économiques" },
-  { version: 'V12.0', year: '2024', description: "IA et la vision par ordinateur au service de l'experience utilisateur: tendances et enjeux." },
   { version: 'V13.0', year: '2025', description: "L'intelligence artificielle et DevOps : Transformateurs du développement applicatif moderne" },
+  { version: 'V12.0', year: '2024', description: "IA et la vision par ordinateur au service de l'experience utilisateur: tendances et enjeux." },
+  { version: 'V11.0', year: '2023', description: "L'informatique entre les tendances technologiques et les exigences économiques" },
+  { version: 'V10.0', year: '2022', description: "A Decade of Open Source: Visualization, Innovation and Dedication Une édition spéciale" },
+  { version: 'V9.0', year: '2021', description: "Covid-19: L'entreprise à l'ère du digital." },
+  { version: 'V8.0', year: '2020', description: "Intelligence Artificielle: Un nouveau challenge pour la digitalisation des entreprises marocaines." },
+  { version: 'V7.0', year: '2019', description: "Open Data: Une richesse publique nécessaire au développement de demain." },
+  { version: 'V6.0', year: '2018', description: "Innovation et Open Source" },
+  { version: 'V5.0', year: '2017', description: "Development and launch of a new innovative product for business management." },
+  { version: 'V4.0', year: '2016', description: "Big & OPEN DATA: De la valorisation Fexploitation de la donnée ouverte" },
+  { version: 'V3.0', year: '2015', description: "Open Innovation, Open Enterprise, Open Society: Open Source is the future" },
+  { version: 'V2.0', year: '2014', description: "Un facteur de promotion du développement de l'entreprise marocaine Vers un partenariat Université-Entreprise" },
+  { version: 'V1.0', year: '2013', description: "L'informatique, une révolution technologique: entre nécessité et besoin" }
 ];
 
 export default Historique;
