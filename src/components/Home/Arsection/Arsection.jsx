@@ -1,6 +1,4 @@
-import React from 'react';
-
-const ARSection = () => {
+const Arsection = () => {
   return (
     <section id='ar-section' className="py-16 bg-gradient-to-r from-red-500 to-indigo-600 text-white text-center">
       <h2 className="text-4xl font-bold mb-8">Augmented Reality Experience</h2>
@@ -12,4 +10,4 @@ const ARSection = () => {
   );
 }
 
-export default ARSection;
+export default Arsection;
