@@ -4,3 +4,31 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  background: url('./assets/bckmain.svg') no-repeat center center fixed; /* Adjust the path */
+  background-size: cover; /* Cover the entire viewport */
+  color: white; /* Default text color */
+}
+body {
+  position: relative; /* Make the section relative */
+  background-image: url('./assets/bckmain.svg'); /* Set your background image path */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the image */
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(39, 39, 180, 0.4); /* Blue color with opacity (adjust as needed) */
+  backdrop-filter: blur(5px); /* Blur effect */
+  z-index: 1; /* Send it to the back */
+}
+
+h1,p,section,footer {
+  position: relative; /* Keep the text above the background */
+  z-index: 2; /* Ensure it appears above the background */
+}

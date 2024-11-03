@@ -4,14 +4,14 @@ import Sponsors from '../components/Home/Sponsors/Sponsors';
 import Guest from '../components/Home/Guest/Guest';
 import ARsection from '../components/Home/Arsection/Arsection';
 import Footer from '../components/Footer/Footer';
-import bgSvg from '../assets/bg.svg'; // Import the SVG from the assets folder
+import bgSvg from '../assets/bg.svg'; // Import the SVG file
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Hero />
       <div 
-        className="mx-auto"
+        className="mx-auto w-full"
         style={{
           backgroundImage: `url(${bgSvg})`,   // Use the imported SVG file
           backgroundSize: 'cover',            // Cover the entire area
@@ -19,7 +19,6 @@ export default function Home() {
           backgroundRepeat: 'no-repeat',      // Prevent repetition
           backgroundAttachment: 'fixed',      // Make the background fixed, so it doesn't scroll
           minHeight: '100vh',                 // Ensure it covers the entire viewport height
-          
         }}
       >
         <Planning />
