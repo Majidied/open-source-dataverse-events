@@ -10,18 +10,20 @@ const sponsors = [
   { name: 'Sponsor 2', logo: 'https://via.placeholder.com/150' },
   { name: 'Sponsor 3', logo: 'https://via.placeholder.com/150' },
   { name: 'Sponsor 4', logo: 'https://via.placeholder.com/150' },
+  { name: 'Sponsor 5', logo: 'https://via.placeholder.com/150' },
+  { name: 'Sponsor 6', logo: 'https://via.placeholder.com/150' },
 ];
 
 // Slider settings
 const settings = {
   dots: false,
-  infinite: true,
-  speed: 3000, // Slow down speed for smoother scrolling
-  slidesToShow: 5, // Reduced to 5 for more balanced display on large screens
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 0, // Continuous scroll
-  cssEase: 'linear',
+  infinite: true, // Keep infinite scrolling
+  speed: 3000, // Speed of scrolling
+  slidesToShow: 5, // Number of images visible
+  slidesToScroll: 1, // Scroll one image at a time
+  autoplay: true, // Autoplay enabled for continuous scrolling
+  autoplaySpeed: 0, // Continuous scrolling speed
+  cssEase: 'linear', // Smooth scrolling
   responsive: [
     {
       breakpoint: 1024,
@@ -53,7 +55,7 @@ const settings = {
 const Sponsors = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Debounce resize handler to avoid performance issues
+  // Resize handler to adjust the mobile view
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
@@ -71,7 +73,7 @@ const Sponsors = () => {
       </p>
       <Slider {...settings}>
         {sponsors.map((sponsor, index) => (
-          <div key={index} className="flex items-center justify-center p-2 md:p-4">
+          <div key={index} className="flex items-center justify-center p-4"> {/* Added padding for space between circles */}
             <Avatar
               alt={sponsor.name}
               src={sponsor.logo}
