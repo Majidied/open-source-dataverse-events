@@ -93,8 +93,13 @@
 
 /*! Media querry*/
 @media (max-width:430px) {
+
+    .MainContainer{
+        margin-bottom: 20px;
+    }
     .MainContainer h1{
         font-size: 17vw;
+        margin-top: 60px;
        }
        .MainContainer p{
         width: 80%;

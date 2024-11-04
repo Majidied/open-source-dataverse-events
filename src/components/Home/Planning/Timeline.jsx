@@ -44,11 +44,15 @@ const Timeline = ({ speedScroll , isActive , events}) => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
   var distanceH ;
-  if(window.innerHeight<430){
-     distanceH =150 - 2 ; // Width of each timeline item
+  if(window.innerWidth<430){
+    
+     distanceH =150 - 2 ; //! Width of each timeline item  
   }else{
+    
     distanceH =  198
   }
+
+  
   const Start_time = new Date();
   Start_time.setHours(items[0].depardH);
   Start_time.setMinutes(items[0].depardM);
