@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logoOpen from "../../assets/lg1.png"
 import { useRef, useEffect } from 'react';
+import { delay, easeInOut, motion,AnimatePresence } from 'framer-motion';
 const OpenSourceNavbar = ({ isOpen, toggleMenu }) => {
   const menuRef = useRef(null);
   const handleClickOutside = (event) => {
@@ -30,8 +31,21 @@ const OpenSourceNavbar = ({ isOpen, toggleMenu }) => {
   const closeMenu = () => {
     toggleMenu(false); 
   };
+  // function for navbar mobile animation
+  const menuVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.4, ease: easeInOut }
+    },
+    closed: {
+      y: "-100%",
+      opacity: 0,
+      transition: { duration: 0.4, ease: easeInOut  }
+    }
+  };
   return (
-    <nav className="bg-white text-gray-500 fixed w-full z-10 top-0 shadow-md border-b-4 border-black">
+    <nav className="text-gray-500 fixed w-full z-10 top-0 shadow-md border-b-4 border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
@@ -53,9 +67,13 @@ const OpenSourceNavbar = ({ isOpen, toggleMenu }) => {
           </div>
         </div>
       </div>
-
+      <AnimatePresence>
       {isOpen && (
-        <div ref={menuRef} className=" md:hidden bg-white">
+        <motion.div ref={menuRef} className=" md:hidden "
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={menuVariants}>
+            {/* Animation on open and close */}
           <div className="px-2 pt-2 pb-3 flex-col flex items-center">
             {/* Render mobile links */}
             <Link to="/" className="text-gray-900 px-3 py-2">Home</Link>
@@ -64,8 +82,9 @@ const OpenSourceNavbar = ({ isOpen, toggleMenu }) => {
             <a onClick={closeMenu} href="#sponsors" className="text-gray-900 px-3 py-2">Sponsors</a>
             <Link to="/DataVerse" className="text-gray-900 px-3 py-2">DataVerse</Link>
           </div>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </nav>
   );
 };
