@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import Header from './Header';
 import Timeline from './Timeline';
+import Counter from './counter';
 import "./Planning.css"
 
 const Planning = () => {
@@ -40,7 +41,7 @@ const Planning = () => {
 
   //!  gerer  l etat du timline selon le jour 
 
-  const [timelin_day ,setTimeline_day]  = useState([true , true , true])
+  const [timelin_day ,setTimeline_day]  = useState([true , true , true , true])
   
   const handleDayEvent = ()=>{
     // mercredi = 3 
@@ -51,22 +52,22 @@ const Planning = () => {
 
     switch (currentDay) {
       case 3:
-        setTimeline_day([true , false , false])
+        setTimeline_day([true , false , false ])
         settimlineState([true , false , false])
         setstatusClass("left")
         break;
       case 4:
-        setTimeline_day([false , true , false])
+        setTimeline_day([false , true , false ])
         settimlineState([false , true, false])
         setstatusClass("middle")
         break;
       case 5:
-        setTimeline_day([false , false , true])
+        setTimeline_day([false , false , true ])
         settimlineState([false , false , true])
         setstatusClass("right")
         break;
       default:
-        setTimeline_day([true , false , false])
+        setTimeline_day([false , false , false ])
         break;
     }
 
@@ -80,24 +81,22 @@ const Planning = () => {
       height:"100vh"
     }}>
       <Header handleClick_One={handleClick_One} handleClick_Two={handleClick_Two}  handleClick_Tree={handleClick_Tree } status={statusClass} ></Header>
-      <div className="timelineCo" style={{height:"300px" , position:"relative" ,overflow: 'hidden', marginTop:"30px"}}>
+      <div className="timelineCo" style={{height:"300px" , position:"relative" ,overflow: 'hidden', marginTop:"30px ", }}>
 
-      <div style={{height:"300px"  , marginTop:"30px"  }} id = "T" className={timelineState[0] ? "Active_One" : "disactive_One"}>
+       <div style={{height:"300px"  , marginTop:"30px"  }} id = "T" className={timelineState[0] ? "Active_One" : "disactive_One"}>
           <Timeline speedScroll={3} events={dayOne}  isActive={timelin_day[0]}/>
-      </div>
+       </div>
 
-      <div style={{height:"300px"  , marginTop:"30px"  }}  className={timelineState[1] ? "Active_Two" : "disactive_Two"}  >
+       <div style={{height:"300px"  , marginTop:"30px" }}  className={timelineState[1] ? "Active_Two" : "disactive_Two"}  >
           <Timeline speedScroll={3} events={dayOne}  isActive={timelin_day[1]}/>
-      </div>
+       </div>
 
-      <div style={{height:"300px"  , marginTop:"30px"  }}  className={timelineState[2] ? "Active_Tree" : "disactive_Tree"} >
+       <div style={{height:"300px"  , marginTop:"30px" }}  className={timelineState[2] ? "Active_Tree" : "disactive_Tree"} >
           <Timeline speedScroll={3} events={dayOne}  isActive={timelin_day[2]}/>
-      </div>
-        
-        
       </div>
 
       
+      </div>    
     </section>
   );
 }
