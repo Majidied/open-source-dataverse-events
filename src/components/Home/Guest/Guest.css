@@ -18,6 +18,7 @@
 .guest-item {
   min-width: 280px; /* Fixed minimum width for each card */
   max-width: 320px; /* Fixed maximum width for each card */
+  height: 350px !important; /* Fixed height for each card */
   margin: 0 10px; /* Space between the cards */
   background: rgba(255, 255, 255, 0.8); /* Soft background with transparency */
   border-radius: 20px; /* Rounded corners */

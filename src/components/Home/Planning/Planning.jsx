@@ -100,7 +100,8 @@ const Planning = () => {
 
   return (
     <section id="planning" style={{
-      height:"100vh"
+      height:"100%",
+      marginBottom:"30px",
     }}>
       <Header handleClick_One={handleClick_One} handleClick_Two={handleClick_Two}  handleClick_Tree={handleClick_Tree } status={statusClass} ></Header>
       <div className="timelineCo" style={{height:"300px" , position:"relative" ,overflow: 'hidden', marginTop:"30px ", }}>
