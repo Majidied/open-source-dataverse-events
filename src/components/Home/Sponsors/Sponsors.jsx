@@ -67,7 +67,7 @@ const Sponsors = () => {
   }, []);
 
   return (
-    <section id="sponsors" className="py-16 bg-transparent text-center">
+    <section id="sponsors" className="py-0 bg-transparent text-center">
       <h2 className="text-4xl font-bold mb-8">Our Sponsors</h2>
       <p className="text-lg mb-12 text-gray-100">
         We are proud to be supported by our incredible sponsors.
