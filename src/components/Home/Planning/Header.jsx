@@ -18,7 +18,7 @@ const Header = ( {handleClick_One , handleClick_Two , handleClick_Tree , status 
             <div className='ButtonsContainer'>
                 <button onClick={handleClick_One} >25 Nov</button>
                 <button onClick={handleClick_Two}>26 Nov</button>
-                <button onClick={handleClick_Tree}>27 Nov</button>
+                {/* <button onClick={handleClick_Tree}>27 Nov</button> */}
                 <span className={statusClass}></span>
                 {/* Adding an underliner that switch between the buttons */}
             </div>

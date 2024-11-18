@@ -2,22 +2,16 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './Guest.css'; // Custom CSS
-import { FaLinkedinIn } from 'react-icons/fa';
-
-// Import images
-import image1 from './image1.png';
-import image2 from './image2.jpg';
-import image3 from './image3.jpg';
-import image4 from './image4.jpg';
-import image5 from './607441.png';
 
 // Data for conferenciers
 const conferenciers = [
-  { name: 'Hamza Abqar', title: 'Tech-Lead & Senior software engineer', img: image1 },
-  { name: 'Prof. Bob Smith', title: 'Directeur de la Recherche', img: image2 },
-  { name: 'M. Charlie Johnson', title: 'Spécialiste en Réalité Augmentée', img: image3 },
-  { name: 'Mme Dana White', title: 'Designer UX', img: image4 },
-  { name: 'Dr. Eve Black', title: 'Scientifique des Données', img: image5 },
+  { name: 'Mr. Hadria Bader', title: 'consultant en logiciels', img: '/BADER.jpeg' },
+  { name: 'Mr.Zkim Youssef ', title: ' ingénieur en conception et développement', img: '/youssef.png' },
+  { name: 'Mr. Masoudi Omar', title: ' Co-fondateur, entrepreneur, spécialiste en marketing digital', img: '/omar.png' },
+  { name: 'Mezouar Houda', title: 'IS Management & Governance Specialist', img: '/houds.jpg' },
+  { name: 'Benayada Assya', title: 'Scientifique des Données', img: '/assya.jpg' },
+  { name: 'D. Abqar Hamza', title: 'Tech-Lead & Senior software engineer', img: '/Abqar.png' },
+  { name: 'Bouihi Bouchra', title: 'Professeur de Enseignement Supérieur', img: '/bou.jpg' },
 ];
 
 // Custom Next Arrow
@@ -79,16 +73,13 @@ const Guest = () => {
 
   return (
     <section id='guests' className="py-16 text-center overflow-hidden">
-      <h2 className="text-4xl font-bold mb-8">Nos Conférenciers</h2>
+      <h2 className="text-4xl font-bold mb-8">Our Speakers</h2>
       <Slider {...settings} className="guest-slider w-full">
         {conferenciers.map((conferencier, index) => (
-          <div key={index} className="guest-item shadow-lg p-6 bg-transparent card-item flex align-center">
+          <div key={index} className="guest-item shadow-lg p-6 bg-transparent card-item flex align-center h-full">
             <img src={conferencier.img} alt={conferencier.name} className="user-image" style={{marginLeft : 'auto' , marginRight : ' auto'}} />
             <h3 className="text-2xl text-white font-semibold mb-4 user-name">{conferencier.name}</h3>
             <p className="user-profession">{conferencier.title}</p>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="linkedin-button" style={{alignSelf : 'flex-end' }}>
-              <FaLinkedinIn />
-            </a>
           </div>
         ))}
       </Slider>
