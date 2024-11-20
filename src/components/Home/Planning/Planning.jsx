@@ -102,7 +102,7 @@ const Planning = () => {
     <section id="planning" style={{
       height:"100%",
       marginBottom:"30px",
-    }}>
+    }} className='bg-transparent'>
       <Header handleClick_One={handleClick_One} handleClick_Two={handleClick_Two}  handleClick_Tree={handleClick_Tree } status={statusClass} ></Header>
       <div className="timelineCo" style={{height:"300px" , position:"relative" ,overflow: 'hidden', marginTop:"30px ", }}>
 

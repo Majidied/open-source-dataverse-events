@@ -1,155 +1,61 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // Hook to get the current route
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  // Helper function to determine which links to show
-  const renderLinks = () => {
-    const path = location.pathname;
-
-    if (path === "/") {
-      return (
-        <>
-          <a
-            href="#"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Home
-          </a>
-          <a
-            href="#planning"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
+  const renderLinks = () => (
+    <>
+      <a href="#planning" className="nav-link">
             Planning
           </a>
-          <a
-            href="#sponsors"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
+          <a href="#sponsors" className="nav-link">
             Sponsors
           </a>
-          <a
-            href="#guests"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
+          <a href="#guests" className="nav-link">
             Guests
           </a>
-          <a
-            href="#ar-section"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Augmented Reality
+          <a href="https://open-source-days13.com" className="nav-link">
+            Open Source
           </a>
-          <Link
-            to="/OpenSource"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Open Source
-          </Link>
-          <Link
-            to="/DataVerse"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
+          <a href="https://dataverse-three.vercel.app" className="nav-link">
             DataVerse
-          </Link>
-        </>
-      );
-    } else if (path === "/OpenSource") {
-      return (
-        <>
-          <Link
-            to="/"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Home
-          </Link>
-          <a href="#historique" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Historique
-              </a>
-              <a href="#team" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Team
-              </a>
-              <a href="#sponsors" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Sponsors
-              </a>
-          <Link
-            to="/OpenSource"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Open Source
-          </Link>
-          <Link
-            to="/DataVerse"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            DataVerse
-          </Link>
-        </>
-      );
-    } else if (path === "/DataVerse") {
-      return (
-        <>
-          <Link
-            to="/"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Home
-          </Link>
-          <a href="#historique" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Historique
-              </a>
-              <a href="#team" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Team
-              </a>
-              <a href="#sponsors" className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                Sponsors
-              </a>
-          <Link
-            to="/OpenSource"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Open Source
-          </Link>
-          <Link
-            to="/DataVerse"
-            className="hover:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            DataVerse
-          </Link>
-        </>
-      );
-    }
-  };
+          </a>
+    </>
+  );
 
   return (
-    <nav className="bg-gray-900 text-white fixed w-full z-10 top-0 shadow-md">
+    <nav className="bg-gradient-to-r from-blue-900 via-black to-red-900 text-white fixed w-full z-10 top-0 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
+          {/* Logo / Title */}
           <div className="flex items-center">
-            <a href="#" className="text-2xl font-bold">
-              {location.pathname === "/"
-                ? "Home"
-                : location.pathname === "/DataVerse"
-                ? "DataVerse"
-                : "Open Source v13"}
+            <a
+              href="#"
+              className="text-2xl font-bold tracking-wide hover:text-indigo-400 transition-colors duration-300 ml-0"
+            >
+              ENSA Khouribga Events
             </a>
           </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-6">
               {renderLinks()}
             </div>
           </div>
+
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none hover:text-indigo-400 transition-colors duration-300"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
@@ -158,13 +64,21 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden w-screen ">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {renderLinks()}
-          </div>
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-80 transform ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-300 ease-in-out z-20`}
+      >
+        <div className="flex flex-col items-center justify-center h-full space-y-6">
+          <button
+            onClick={toggleMenu}
+            className="absolute top-6 right-6 text-white text-2xl focus:outline-none hover:text-indigo-400 transition-colors duration-300"
+          >
+            <FaTimes />
+          </button>
+          <div className="flex flex-col space-y-6">{renderLinks()}</div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

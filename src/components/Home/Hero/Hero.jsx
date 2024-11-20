@@ -1,80 +1,120 @@
+import React from 'react';
 import { motion } from 'framer-motion';
+import Typewriter from 'typewriter-effect'; // For dynamic writing animation
 import logo1 from './dv.svg'; // Adjust the path to your logo image
 import logo2 from './os.svg'; // Adjust the path to your logo image
-import bckHero from './bck.jpg'; // Import the background image
+import bckHero from './bg.jpg'; // Import the background image
 
 const Hero = () => {
+  const scrollToNextSection = () => {
+    // Smoothly scroll to the next section
+    window.scrollTo({
+      top: window.innerHeight, // Scroll by the viewport height
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <section 
-      className="relative h-screen flex flex-col justify-center items-center text-white p-4" // Added padding for better spacing
-      style={{
-        backgroundImage: `url(${bckHero})`, // Set the background image
-        backgroundSize: 'cover', // Make the background cover the entire section
-        backgroundPosition: 'center', // Center the background image
-        backgroundAttachment: 'fixed', // Parallax effect for a more dynamic design
-      }}
-    >
-      {/* Overlay with blur and dark bluish filter */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-900 to-transparent opacity-70 backdrop-blur-md"></div>
+    <section className="relative h-screen flex flex-col justify-center items-center text-white">
+      {/* Overlay with blur and gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900 via-black to-blue-900 opacity-70 backdrop-blur-md"></div>
 
       {/* Background Image */}
       <div 
-        className="relative w-full h-full flex flex-col justify-center items-center space-y-6 md:space-y-8 lg:space-y-10"
+        className="relative w-full h-full flex flex-col justify-center items-center"
+        style={{
+          backgroundImage: `url(${bckHero})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+        }}
       >
-        {/* Overlay logos in the center */}
-        <div className="flex flex-wrap items-center justify-center mb-6 space-x-3 sm:space-x-5 md:space-x-10">
-          {/* Left Logo with fade in from the left */}
+        {/* Overlay logos */}
+        <div className="flex items-center justify-center mb-10 space-x-10 md:space-x-20">
+          {/* Left Logo with animation */}
           <motion.img 
             src={logo1} 
             alt="Logo 1" 
-            className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-lg"
-            initial={{ opacity: 0, x: -100 }}  // Start faded out and to the left
-            animate={{ opacity: 1, x: 0 }}     // Animate to full opacity and original position
-            transition={{ duration: 1 }}       // Set duration of the animation
+            className="w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 object-contain"
+            initial={{ opacity: 0, x: -150 }}  
+            animate={{ opacity: 1, x: 0 }}     
+            transition={{ duration: 1 }}       
           />
           
-          {/* X symbol with bounce scale */}
+          {/* X symbol with bounce animation */}
           <motion.span 
-            className="text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-7xl drop-shadow-md"
-            initial={{ scale: 0 }}              // Start at a scale of 0 (invisible)
-            animate={{ scale: [1.2, 0.9, 1] }}  // Bounce effect (scaling up and then down to 1)
-            transition={{ duration: 1, delay: 0.5, ease: 'easeInOut' }}  // Animation duration and delay
+            className="text-white font-extrabold text-4xl sm:text-6xl md:text-8xl"
+            initial={{ scale: 0 }}             
+            animate={{ scale: [1.2, 0.9, 1] }} 
+            transition={{ duration: 1, delay: 0.5, ease: 'easeInOut' }}
           >
             X
           </motion.span>
           
-          {/* Right Logo with fade in from the right */}
+          {/* Right Logo with animation */}
           <motion.img 
             src={logo2} 
             alt="Logo 2" 
-            className="w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-lg"
-            initial={{ opacity: 0, x: 100 }}   // Start faded out and to the right
-            animate={{ opacity: 1, x: 0 }}     // Animate to full opacity and original position
-            transition={{ duration: 1 }}       // Set duration of the animation
+            className="w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 object-contain"
+            initial={{ opacity: 0, x: 150 }}   
+            animate={{ opacity: 1, x: 0 }}     
+            transition={{ duration: 1 }}       
           />
         </div>
 
-        {/* Main text content */}
+        {/* Main heading with typing effect */}
         <motion.h1 
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center drop-shadow-lg"
-          initial={{ opacity: 0, y: -50 }}  // Initial state
-          animate={{ opacity: 1, y: 0 }}    // Animate to full opacity
-          transition={{ duration: 1 }}      // Animation duration
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-center"
+          initial={{ opacity: 0, y: -50 }}  
+          animate={{ opacity: 1, y: 0 }}    
+          transition={{ duration: 1 }}
         >
-          DataVerse & Open Source Events
+          <Typewriter
+            options={{
+              strings: [
+                'DataVerse & Open Source Events',
+                'Celebrating Innovation and Collaboration',
+              ],
+              autoStart: true,
+              loop: true,
+              deleteSpeed: 50,
+              delay: 75,
+            }}
+          />
         </motion.h1>
         
+        {/* Description text with fade-in animation */}
         <motion.p 
-          className="text-xs sm:text-sm md:text-base lg:text-lg mt-4 px-4 md:px-8 lg:px-12 text-center max-w-3xl"
+          className="text-sm sm:text-lg md:text-xl mt-4 mx-6 sm:mx-16 md:mx-40 text-center leading-relaxed"
           initial={{ opacity: 0 }} 
           animate={{ opacity: 1 }} 
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 1, duration: 1 }}
         >
           Experience the synergy of innovation as Open Source Days collaborates with Dataverse. Together, we bring you an event that celebrates open-source technology and data management.
         </motion.p>
+
+        {/* Scroll-down button */}
+        <motion.div
+          className="absolute bottom-8 flex flex-col items-center cursor-pointer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2, duration: 1 }}
+          onClick={scrollToNextSection}
+        >
+          {/* Arrow animation */}
+          <motion.div
+            className="text-white text-2xl mb-2 animate-bounce"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            ↓
+          </motion.div>
+          <span className="text-white text-sm sm:text-md font-medium">
+            Scroll Down
+          </span>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
 
 export default Hero;
