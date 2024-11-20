@@ -24,7 +24,6 @@ const settings = {
   autoplay: true, // Autoplay enabled for continuous scrolling
   autoplaySpeed: 0, // Continuous scrolling speed
   cssEase: 'linear', // Smooth scrolling
-  arrows: false, // Hide arrows
   responsive: [
     {
       breakpoint: 1024,
@@ -69,7 +68,7 @@ const Sponsors = () => {
   return (
     <section id="sponsors" className="py-16 bg-transparent text-center">
       <h2 className="text-4xl font-bold mb-8">Our Sponsors</h2>
-      <p className="text-lg mb-12 text-gray-100">
+      <p className="text-lg mb-12 text-gray-700">
         We are proud to be supported by our incredible sponsors.
       </p>
       <Slider {...settings}>
